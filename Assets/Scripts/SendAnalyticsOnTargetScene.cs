@@ -24,7 +24,7 @@ public class SendAnalyticsOnTargetScene : MonoBehaviour
 
             AnalyticsService.Instance.RecordEvent(customEvent);
 
-            Debug.Log($"✅ [UGS Analytics] Event sent! Time spent = {timeSpent} seconds");
+            Debug.Log($" [UGS Analytics] Event sent! Time spent = {timeSpent} seconds");
         }
         else
         {
