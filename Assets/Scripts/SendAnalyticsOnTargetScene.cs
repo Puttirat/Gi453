@@ -28,7 +28,7 @@ public class SendAnalyticsOnTargetScene : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("❗ GameTimer.Instance is NULL");
+            Debug.LogWarning(" GameTimer.Instance is NULL");
         }
     }
 }
