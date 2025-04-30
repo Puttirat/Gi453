@@ -2,8 +2,43 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - CarDoor
+  - Mirror
+  - WallSound
+  - Flashlight
+  - Door
+  - Explore
+  - Knife
+  - MysteriosMan
+  - MurderCar
+  - Radio
+  - Pickable
+  - Camp
+  - Table
+  - Lighter
+  - DiskDoor
+  - DiskLighter
+  - Mary
+  - DiskBookShelf
+  - Item
+  - DiskDeer
+  - Computer
+  - Area
+  - Area2
+  - DiskFlashlight
+  - Car
+  - Dry Stick01
+  - Dry Stick02
+  - Dry Stick03
+  - Dry Stick04
+  - Dry Stick05
+  - Dry Stick06
+  - Dry Stick07
+  - Dry Stick08
+  - Dry Stick09
+  - Dry Stick10
   layers:
   - Default
   - TransparentFX
@@ -50,27 +85,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
