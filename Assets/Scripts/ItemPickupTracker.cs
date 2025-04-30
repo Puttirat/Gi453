@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Analytics;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public class ItemPickupTracker : MonoBehaviour
@@ -18,6 +17,7 @@ public class ItemPickupTracker : MonoBehaviour
         try
         {
             await UnityServices.InitializeAsync();
+            AnalyticsService.Instance.StartDataCollection();
             Debug.Log("Unity Services initialized.");
         }
         catch (System.Exception e)
@@ -26,19 +26,30 @@ public class ItemPickupTracker : MonoBehaviour
         }
     }
 
-    // เรียกฟังก์ชันินี้เมื่อผู้เล่นหยิบไอเทม
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickable") && !hasPickedFirstItem)
+        {
+            string itemId = other.gameObject.name;
+            PickItem(itemId);
+            Destroy(other.gameObject);
+        }
+    }
+
     public void PickItem(string itemId)
     {
-        if (hasPickedFirstItem) return;
+        if (hasPickedFirstItem)
+        {
+            Debug.Log("Already picked first item, skipping.");
+            return;
+        }
 
         hasPickedFirstItem = true;
 
-        var eventParams = new Dictionary<string, object>
-        {
-            { "first_item_id", itemId }
-        };
+        CustomEvent myEvent = new CustomEvent("first_item_picked");
+        myEvent["first_item_id"] = itemId;
 
-        AnalyticsService.Instance.CustomEvent("first_item_picked", eventParams);
-        Debug.Log($"Sent 'first_item_picked' event with item: {itemId}");
+        AnalyticsService.Instance.RecordEvent(myEvent);
+        Debug.Log($"✅ Sent 'first_item_picked' event with item: {itemId}");
     }
 }
